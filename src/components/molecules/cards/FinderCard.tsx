@@ -99,7 +99,7 @@ const FinderCard: FC<FinderCardProps> = ({ finder }) => {
             <TableCell className={classes.fontWeightMedium}>Telefone</TableCell>
             <TableCell>
               <Typography variant="body2" color="textSecondary">
-                {finder.phone_number}
+                {finder.phone}
               </Typography>
             </TableCell>
           </TableRow>

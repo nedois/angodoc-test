@@ -9,9 +9,8 @@ import { Typography, Box, Container, makeStyles, Grid } from '@material-ui/core'
 
 import AppLayout from 'src/components/layouts/AppLayout';
 import { Theme } from 'src/theme';
-import useBreadcrumb from 'src/hooks/useBreadcrumb';
 import PageBanner from 'src/components/molecules/banners/PageBanner';
-import Breadcrumb from 'src/components/molecules/navigation/Breadcrumb';
+import Breadcrumb from 'src/components/molecules/navigation/HeaderBreadcrumb';
 import AgencyCardSkeleton from 'src/components/molecules/cards/AgencyCardSkeleton';
 import AgencyCard from 'src/components/molecules/cards/AgencyCard';
 import DocumentSearchResultCardSkeleton from 'src/components/molecules/cards/DocumentSearchResultCardSkeleton';
@@ -25,7 +24,6 @@ const breadcrumbItems = [{ label: 'Resultado da pesquisa' }];
 const SearchResultPage: MyNextPage = () => {
   const classes = useStyles();
   const router = useRouter();
-  const { setItems } = useBreadcrumb();
   const [document, setDocument] = useState<Document | null>(null)
   const [fetching, setFetching] = useState(true)
 
@@ -37,10 +35,6 @@ const SearchResultPage: MyNextPage = () => {
       .catch(err => console.log(err))
       .finally(() => setFetching(false))
   }, [documentRef])
-
-  useEffect(() => {
-    setItems(breadcrumbItems);
-  }, [setItems]);
 
   useEffect(() => {
     getDocument();
@@ -57,7 +51,7 @@ const SearchResultPage: MyNextPage = () => {
       <PageBanner title="Pesquisa" description={`Resultado da pesquisa: ${documentRef}`} illustration={SearchIcon} />
       <Box mt={3} pb={3}>
         <Container className={classes.container}>
-          <Breadcrumb />
+          <Breadcrumb items={breadcrumbItems} />
           <Typography variant="h1" component="h1">
             Resultado da pesquisa
           </Typography>

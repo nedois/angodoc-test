@@ -25,7 +25,6 @@ import withSettings from 'src/components/utilities/withSettings';
 import GlobalStyles from 'src/components/utilities/GlobalStyles';
 import ScrollReset from 'src/components/utilities/ScrollReset';
 import AuthProvider from 'src/contexts/AuthContext';
-import { BreadcrumbProvider } from 'src/contexts/BreadcrumbContext';
 import { useStore } from 'src/hooks/useStore';
 
 const snackbarIconVariant = {
@@ -95,12 +94,10 @@ const MyApp = ({ Component, pageProps, router }: MyAppProps) => {
             <CssBaseline />
             <ScrollReset />
             <AuthProvider>
-              <BreadcrumbProvider>
-                <Layout>
-                  <DefaultSeo titleTemplate="%s - Angodoc" />
-                  <Component {...pageProps} key={router.route} />
-                </Layout>
-              </BreadcrumbProvider>
+              <Layout>
+                <DefaultSeo titleTemplate="%s - Angodoc" />
+                <Component {...pageProps} key={router.route} />
+              </Layout>
             </AuthProvider>
           </SnackbarProvider>
         </MuiPickersUtilsProvider>

@@ -1,22 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Typography, Box, Container, Grid } from '@material-ui/core';
 import { BiMessageAltDetail as ContactIcon } from 'react-icons/bi';
 
 import AppLayout from 'src/components/layouts/AppLayout';
-import Breadcrumb from 'src/components/molecules/navigation/Breadcrumb';
+import Breadcrumb from 'src/components/molecules/navigation/HeaderBreadcrumb';
 import PageBanner from 'src/components/molecules/banners/PageBanner';
 import MainContactForm from 'src/components/molecules/forms/contact/MainContactForm';
-import useBreadcrumb from 'src/hooks/useBreadcrumb';
 import { MyNextPage } from 'src/contrats/interfaces';
 
 const ContactPage: MyNextPage = () => {
-  const { setItems } = useBreadcrumb();
-
-  useEffect(() => {
-    setItems(breadcrumbItems);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <PageBanner
@@ -26,7 +18,7 @@ const ContactPage: MyNextPage = () => {
       />
       <Box mt={3} pb={3}>
         <Container>
-          <Breadcrumb />
+          <Breadcrumb items={breadcrumbItems} />
           <Typography variant="h2" component="h2">
             Formulário de contacto
           </Typography>

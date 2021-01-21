@@ -17,8 +17,7 @@ import {
 
 import AppLayout from 'src/components/layouts/AppLayout';
 import PageBanner from 'src/components/molecules/banners/PageBanner';
-import useBreadcrumb from 'src/hooks/useBreadcrumb';
-import Breadcrumb from 'src/components/molecules/navigation/Breadcrumb';
+import Breadcrumb from 'src/components/molecules/navigation/HeaderBreadcrumb';
 import AgencyCard from 'src/components/molecules/cards/AgencyCard';
 import AgencyCardSkeleton from 'src/components/molecules/cards/AgencyCardSkeleton';
 import AgencySearchForm from 'src/components/molecules/forms/search/AgencySearchForm';
@@ -31,7 +30,6 @@ import { Agency } from 'src/contrats/types';
 
 const AgenciesPage: MyNextPage = () => {
   const classes = useStyles();
-  const { setItems } = useBreadcrumb();
   const [province, setProvince] = useState('Luanda');
   const prevProvince = usePrevious(province);
   const [page, setPage] = useState(1);
@@ -44,10 +42,6 @@ const AgenciesPage: MyNextPage = () => {
     const newPrepo = PROVINCES.filter(_province => _province.key === event.target.value)[0].prepo;
     setPrepo(newPrepo || '');
   };
-
-  useEffect(() => {
-    setItems(breadcrumbItems);
-  }, [setItems]);
 
   useEffect(() => {
     if (data) {
@@ -70,7 +64,7 @@ const AgenciesPage: MyNextPage = () => {
       </PageBanner>
       <Box mt={3} pb={3}>
         <Container>
-          <Breadcrumb />
+          <Breadcrumb items={breadcrumbItems} />
           <Typography variant="h2" component="h2">
             {`Agências na província ${prepo} `}
             <TextField

@@ -15,5 +15,8 @@ export default function useFetch<Data = any, Error = any>(
     return response.data;
   });
 
-  return { data, error };
+  return { data, error } as {
+    data: Data;
+    error: Error;
+  };
 }
