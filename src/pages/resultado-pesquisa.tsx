@@ -40,12 +40,6 @@ const SearchResultPage: MyNextPage = () => {
     getDocument();
   }, [getDocument]);
 
-  if (!documentRef) {
-    if(process.browser) router.push('/');
-
-    return null;
-  }
-
   return (
     <>
       <PageBanner title="Pesquisa" description={`Resultado da pesquisa: ${documentRef}`} illustration={SearchIcon} />

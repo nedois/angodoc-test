@@ -17,7 +17,7 @@ const DocumentSearchForm: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    router.push(`/resultado-pesquisa?d=${documentRef}`);
+    router.push(`/resultado-pesquisa?documentRef=${documentRef}`);
   };
 
   return (
