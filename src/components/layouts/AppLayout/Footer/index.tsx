@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
               <Typography variant="body1">
                 {`© ${new Date().getFullYear()} `}
                 <strong>AngoDoc</strong>
-                {` Todos os direitos reservados. `}
+                {` Todos os direitos reservados.`}
               </Typography>
               <Typography variant="body1">
                 {`Desenvolvido pela `}
