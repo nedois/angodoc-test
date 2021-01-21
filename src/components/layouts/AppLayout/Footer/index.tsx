@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                 Painel de contrôle
               </Button>
             ) : (
-              <a href="http://54.37.200.194/login">
+              <a href="http://104.131.79.196/login">
                 <Button variant="contained" color="primary" component="a">
                   Entrar
                 </Button>
